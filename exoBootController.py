@@ -109,8 +109,7 @@ class EPOS4USB_sensorData(Thread):
     def getAnalogInputVoltage(self,inputNumber):
         pAnInVIs=c_long()
         ret=epos.VCS_GetAnalogInputVoltage(self.keyHandle, self.nodeID, inputNumber, byref(pAnInVIs), byref(self.pErrorCode))
-        self.anInV = pAnInVIs.value
-        return self.anInV # analog input voltage value
+        return pAnInVIs.value # analog input voltage value
 
     # # Query analog inputs thread
     # def getAnalogInputVoltageThread(self,inputNumber):
@@ -233,7 +232,7 @@ if __name__ == "__main__":
 
     while True:
         # EPOS1.getMotorPosition()
-        print(1/EPOS1.sensorData_del_t,EPOS1.motorPosition,EPOS1.motorVelocity,EPOS1.motorCurrent)
+        print(1/EPOS1.sensorData_del_t,EPOS1.getAnalogInputVoltage(0))
                     # create plot using matplotlib with subplots of motor position, velocity, current and analog inputs
             # make it moving window plot
         # multiProcessingPlotting(EPOS1)        
