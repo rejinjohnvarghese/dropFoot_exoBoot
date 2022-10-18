@@ -7,7 +7,7 @@ from ctypes import *
 import multiprocessing
 
 # EPOS Command Library path
-path='.\EposCmd64.dll'
+path='.maxon\EposCmd64.dll'
 
 # Load library
 cdll.LoadLibrary(path)
