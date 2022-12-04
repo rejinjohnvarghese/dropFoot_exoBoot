@@ -12,6 +12,7 @@ path='.maxon\EposCmd64.dll'
 # Load library
 cdll.LoadLibrary(path)
 epos = CDLL(path)
+
 print("EPOS Library loaded")
 
 threadLock = Lock()
